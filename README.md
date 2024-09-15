@@ -1,3 +1,30 @@
+## Запуск
+Создайте .env файл в корне проекта с переменными
+```
+SERVER_ADDRESS=
+POSTGRES_CONN=
+POSTGRES_JDBC_URL=
+POSTGRES_USERNAME=
+POSTGRES_PASSWORD=
+POSTGRES_HOST=
+POSTGRES_PORT=
+POSTGRES_DATABASE=
+```
+Заполните в соответствии с credentials cnrprod1725724486-team-76925_pgsql.txt
+[PostgreSQL credentials](https://git.codenrock.com/avito-testirovanie-na-backend-1270/cnrprod1725724486-team-76925/credentials/-/blob/main/cnrprod1725724486-team-76925_pgsql.txt?ref_type=heads)
+
+Соберите и запустите контейнер
+```
+docker build -t fastapi-app .
+
+docker run -d --name fastapi-container -p 8080:8080 --env-file .env fastapi-app
+```
+
+Экспортируйте .env файла командой ```export $(grep -v '^#' .env | xargs)```
+
+Если база вдруг будет недоступна можно запустить локально изменив .env
+```docker-compose up -d --build```
+
 ## Структура проекта
 В данном проекте находится типовой пример для сборки приложения в докере из находящящегося в проекте Dockerfile. Пример на Gradle используется исключительно в качестве шаблона, вы можете переписать проект как вам хочется - главное, что бы Dockerfile находился в корне проекта и приложение отвечало по порту 8080. Других требований нет.
 

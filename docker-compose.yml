@@ -10,7 +10,7 @@ services:
     depends_on:
       - postgres
     environment:
-      - DATABASE_URL=${DATABASE_URL}
+      - DATABASE_URL=${POSTGRES_CONN}
 
   postgres:
     image: postgres:16

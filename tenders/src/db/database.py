@@ -5,7 +5,7 @@ from sqlalchemy.ext.declarative import declarative_base
 from app.settings import get_settings
 
 settings = get_settings()
-URL_DATABASE = settings.postgres_jdbc_url
+URL_DATABASE = settings.postgres_conn
 engine = create_engine(URL_DATABASE)
 
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
