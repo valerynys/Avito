@@ -1,0 +1,13 @@
+HELP.md
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+/out/
+
+.pytest_cache
+.ruff_cache
+
+.env
